@@ -13,10 +13,10 @@ export const createTodo = async (todo) => {
     await todosApi.post('/todos', todo)
 }
 
-export const deleteTodo = async (todo) => {
-    await todosApi.delete(`/todos/${todo.id}`, todo)
+export const deleteTodo = async (id) => {
+    await todosApi.delete(`/todos/${id}`, id)
 }
 
-export const updateTodo = async ({id}) => {
-    await todosApi.patch(`/todos/${id}`, id)
+export const updateTodo = async (todo) => {
+    await todosApi.patch(`/todos/${todo.id}`, todo)
 }
