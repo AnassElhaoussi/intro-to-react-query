@@ -13,18 +13,29 @@ const TodoList = () => {
         isLoading,
         isError,
         error,
-        data: todosData
+        data
     } = useQuery('todos', getTodos)
 
+    
     const addTodoMutation = useMutation(createTodo, {
-        onSuccess: () => {
-            queryClient.invalidateQueries('todos')
+        onMutate: (addedTodo) => {
+            queryClient.setQueryData('todos', old => [...old, addedTodo])
         }
     })
 
     const updateTodoMutation = useMutation(updateTodo, {
-        onSuccess: () => {
-            queryClient.invalidateQueries('todos')
+        onMutate: (updatedTodo) => {
+            queryClient.setQueryData('todos', old => {
+               const newUpdatedTodos = old
+               .map((todo) => {
+                    if(todo.id === updatedTodo.id){
+                        return {...todo, completed: !todo.completed}
+                    }
+                    return todo
+               })
+
+               return newUpdatedTodos
+            })
         }
     })
 
@@ -44,7 +55,7 @@ const TodoList = () => {
         <div className='todos-container'>
             <h1>Your current tasks : </h1>
             <div>
-                {todosData?.map(todo => {
+                {data?.map((todo, id) => {
                     return (
                         <div className='todo'>
                             <input 
@@ -69,18 +80,19 @@ const TodoList = () => {
 
 
   return (
-    <div className='wrapper'>
+      <div className='wrapper'>
         <h1>Add a new todo</h1>
         <input 
             type="text" 
             placeholder="What's your today's task"
             value={newTodo}
             onChange={event => setNewTodo(event.target.value)}
-        />
+            />
+        
         <button onClick={handleSubmit}>Submit task</button>
-        {todosData && todosWrapper}
+        {data && todosWrapper}
         {isError && <p>{error.message}</p>}
-        {isLoading && <p>Loading...</p>}
+        
     </div>
   )
 }
