@@ -28,7 +28,7 @@
       "userId": 1,
       "id": 10,
       "title": "illo est ratione doloremque quia maiores aut",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 1,
@@ -130,42 +130,30 @@
       "userId": 2,
       "id": 28,
       "title": "nesciunt totam sit blanditiis sit",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 2,
       "id": 29,
       "title": "laborum aut in quam",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 2,
       "id": 30,
       "title": "nemo perspiciatis repellat ut dolor libero commodi blanditiis omnis",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 2,
       "id": 31,
       "title": "repudiandae totam in est sint facere fuga",
-      "completed": false
-    },
-    {
-      "userId": 2,
-      "id": 32,
-      "title": "earum doloribus ea doloremque quis",
-      "completed": false
-    },
-    {
-      "userId": 2,
-      "id": 33,
-      "title": "sint sit aut vero",
-      "completed": false
+      "completed": true
     },
     {
       "userId": 1,
       "title": "hello",
-      "completed": false,
+      "completed": true,
       "id": 34
     }
   ]
