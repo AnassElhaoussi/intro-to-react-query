@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 const todosApi = Axios.create({
-    baseURL: "http://localhost:3500"
+    baseURL: "http://localhost:5000"
 })
 
 export const getTodos = async () => {

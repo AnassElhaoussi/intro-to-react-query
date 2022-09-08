@@ -18,18 +18,19 @@ const TodoList = () => {
 
     
     const addTodoMutation = useMutation(createTodo, {
-        onMutate: (addedTodo) => {
-            queryClient.setQueryData('todos', old => [...old, addedTodo])
+        onSuccess: () =>{
+            queryClient.invalidateQueries('todos')
         }
     })
 
     const updateTodoMutation = useMutation(updateTodo, {
-        onMutate: (updatedTodo) => {
+        onMutate: ({id, completed}) => {
             queryClient.setQueryData('todos', old => {
+               console.log(old)
                const newUpdatedTodos = old
                .map((todo) => {
-                    if(todo.id === updatedTodo.id){
-                        return {...todo, completed: !todo.completed}
+                    if(todo.id === id){
+                        return {...todo, completed}
                     }
                     return todo
                })
