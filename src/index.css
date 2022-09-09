@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+body {
+    height: 100%;
+    background-color: rgb(225, 238, 245);
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.app_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10rem;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 3rem;
+    background-color: rgb(243, 244, 247);
+    border-radius: 2rem;
+    padding: 3rem;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.wrapper h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.wrapper input[type="text"] {
+    outline: none;
+    border: none;
+    background-color: rgb(75, 174, 255);
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.wrapper input[type="text"]::placeholder {
+    color: white;
+}
+
+span {
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: gray;
+}
+
+.input-container {
+    position: relative;
+}
+
+.check {
+    position: absolute;
+    top: 1.4rem;
+    right: 1rem;
+    color: white;
+    cursor: pointer;
+}
+
+.todos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="checkbox"] {
+    border: none;
+}
+
+.todos__container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.todo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgb(255, 255, 255);
+    width: fit-content;
+    padding: 1.3rem 2rem 1.3rem 1rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+
+.todo label {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.todo svg {
+    font-size: 1.4rem;
+}
+
+.loading {
+    font-size: 1.6rem;
+}
+
+.error {
+    font-size: 1.6rem;
+    color: rgb(255, 65, 65);
+}

@@ -3,7 +3,7 @@ import { useMutation, useQuery, useQueryClient } from 'react-query'
 import { getTodos, createTodo, deleteTodo, updateTodo } from '../api/todosApi'
 import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faPen, faTrash} from '@fortawesome/free-solid-svg-icons'
+import {faPen, faTrash, faCheck} from '@fortawesome/free-solid-svg-icons'
 
 const TodoList = () => {
     const [newTodo, setNewTodo] = useState('')
@@ -53,9 +53,9 @@ const TodoList = () => {
     }
 
     const todosWrapper = (
-        <div className='todos-container'>
-            <h1>Your current tasks : </h1>
-            <div>
+        <div className='todos'>
+            <span>YOUR CURRENT TASKS :  </span>
+            <div className='todos__container'>
                 {data?.map((todo, id) => {
                     return (
                         <div className='todo'>
@@ -82,18 +82,25 @@ const TodoList = () => {
 
   return (
       <div className='wrapper'>
-        <h1>Add a new todo</h1>
-        <input 
-            type="text" 
-            placeholder="What's your today's task"
-            value={newTodo}
-            onChange={event => setNewTodo(event.target.value)}
-            />
-        
-        <button onClick={handleSubmit}>Submit task</button>
+        <div>
+            <h1 className='primary-heading'>Hi there!</h1>
+            <div className='input-container'>
+                <input 
+                    type="text" 
+                    placeholder="What's your today's task"
+                    value={newTodo}
+                    onChange={event => setNewTodo(event.target.value)}
+                    />
+                
+                <FontAwesomeIcon 
+                icon={faCheck} 
+                className='check'
+                onClick={handleSubmit} />
+            </div>
+        </div>
         {data && todosWrapper}
-        {isError && <p>{error.message}</p>}
-        
+        {isError && <p className='error'>{error.message}</p>}
+        {isLoading && <p className='loading'>Loading your todos..</p>}
     </div>
   )
 }
